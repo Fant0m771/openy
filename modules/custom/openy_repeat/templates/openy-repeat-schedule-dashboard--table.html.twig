@@ -15,7 +15,7 @@
   {% endblock %}
     <h2>
       <button v-on:click.stop="backOneDay" class="schedule-dashboard__arrow left" role="button" aria-label="previous date"><i class="fa fa-angle-left"></i></button>
-      <span class="date" v-cloak>${ dateFormatted }</span>
+      <span class="date notranslate" v-cloak>${ dateFormatted }</span>
       <button v-on:click.stop="forwardOneDay" v-if="showForwardArrow" class="schedule-dashboard__arrow right" role="button" aria-label="next date"><i class="fa fa-angle-right"></i></button>
     </h2>
   </div>
@@ -49,12 +49,12 @@
 
           {# location #}
           <div v-cloak class="location-column">
-            <strong><a class="schedule-dashboard__modal--location-link" role="button" v-on:click="$parent.populatePopupL(index)" data-toggle="modal" data-target=".schedule-dashboard__modal--location">${ item.location }</a></strong>
+            <strong><a href="#" tabindex="0" class="schedule-dashboard__modal--location-link" role="button" v-on:click="$parent.populatePopupL(index)" data-toggle="modal" data-target=".schedule-dashboard__modal--location">${ item.location }</a></strong>
           </div>
 
           {# class #}
           <div v-cloak>
-            <strong><a class="schedule-dashboard__modal--class-link" role="button" v-on:click="$parent.populatePopupC(index)" data-toggle="modal" data-target=".schedule-dashboard__modal--class">${ item.name }</a></strong>
+            <strong><a href="#" tabindex="0" class="schedule-dashboard__modal--class-link" role="button" v-on:click="$parent.populatePopupC(index)" data-toggle="modal" data-target=".schedule-dashboard__modal--class">${ item.name }</a></strong>
           </div>
 
           {# time #}
@@ -93,8 +93,8 @@
           </div>
 
           {# register btn #}
-          <div v-cloak class="register-column" v-if="item.register_url" >
-            <a v-bind:href="item.register_url" class="btn btn-primary register-btn">${ item.register_text }</a>
+          <div v-cloak class="register-column">
+            <span v-if="item.register_url"><a v-bind:href="item.register_url" class="btn btn-primary register-btn">${ item.register_text }</a></span>
           </div>
         </div>
 
